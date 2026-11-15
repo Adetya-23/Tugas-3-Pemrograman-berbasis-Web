@@ -1,0 +1,504 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#app {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+/* Memberikan transisi halus pada informasi bahan ajar. */
+.selected-item-info {
+  transition: all 0.2s ease;
+}
+
+/* Mengubah tampilan ketika kursor berada di informasi bahan ajar. */
+.selected-item-hover {
+  border-color: #3a5a73;
+  background: #eaf1f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 90, 115, 0.12);
+}
+
+/** TRACKING **/
+
+/* Mengatur tampilan form pencarian tracking. */
+.tracking-search-form {
+    max-width: 700px;
+}
+
+/* Mengatur daftar pengiriman. */
+.tracking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mengatur setiap item pengiriman. */
+.tracking-list-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e0e7eb;
+    border-radius: 12px;
+    background: #fff;
+    color: #263746;
+    transition: all 0.2s ease;
+}
+
+/* Memberikan efek hover pada item pengiriman. */
+.tracking-list-item:hover {
+    border-color: #6D93AB;
+    background: #f5f8fa;
+}
+
+/* Menandai item pengiriman yang sedang dipilih. */
+.tracking-list-active {
+    border-color: #3A5A73;
+    background: #edf3f6;
+}
+
+/* Mengatur ikon paket. */
+.tracking-list-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #E3DCCF;
+    color: #3A5A73;
+    font-size: 20px;
+}
+
+/* Mengatur badge status pengiriman. */
+.tracking-status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Warna status dalam perjalanan. */
+.tracking-status-info {
+    background: #e4eff6;
+    color: #286184;
+}
+
+/* Warna status berhasil atau diterima. */
+.tracking-status-success {
+    background: #e1f2e7;
+    color: #277345;
+}
+
+/* Warna status dalam proses. */
+.tracking-status-warning {
+    background: #fff2d9;
+    color: #93691b;
+}
+
+/* Warna status lainnya. */
+.tracking-status-default {
+    background: #edf0f2;
+    color: #52616b;
+}
+
+/* Mengatur baris detail pengiriman. */
+.tracking-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf0f2;
+    font-size: 14px;
+}
+
+/* Mengatur teks label detail. */
+.tracking-detail-row span {
+    color: #778da9;
+}
+
+/* Mengatur nomor delivery order. */
+.tracking-detail-number {
+    padding: 16px;
+    border-radius: 12px;
+    background: #f2f6f8;
+}
+
+/* Mengatur timeline pengiriman. */
+.tracking-timeline {
+    position: relative;
+    padding-left: 8px;
+}
+
+/* Mengatur setiap item timeline. */
+.tracking-timeline-item {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 30px;
+}
+
+/* Membuat garis penghubung timeline. */
+.tracking-timeline-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 15px;
+    bottom: 0;
+    width: 2px;
+    background: #dce5eb;
+}
+
+/* Mengatur lingkaran timeline. */
+.tracking-timeline-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #3A5A73;
+    color: #fff;
+}
+
+/* Mengatur konten timeline. */
+.tracking-timeline-content {
+    flex: 1;
+    padding-top: 5px;
+}
+
+/* Mengatur tampilan ketika tidak ada data. */
+.tracking-empty {
+    padding: 35px 20px;
+    text-align: center;
+    color: #778da9;
+}
+
+/* Mengatur ikon pada kondisi kosong. */
+.tracking-empty > i {
+    font-size: 36px;
+}
+
+/* Menyesuaikan tampilan tracking pada layar kecil. */
+@media (max-width: 576px) {
+    .tracking-list-item {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .tracking-detail-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+/* Mengatur tampilan tombol daftar pengiriman. */
+.tracking-list-item {
+    min-height: 70px;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Mengatur teks informasi penerima agar tidak terlalu lebar. */
+.tracking-list-item .flex-grow-1 {
+    min-width: 0;
+}
+
+/* Menyesuaikan badge status pada layar kecil. */
+.tracking-list-item .tracking-status-badge {
+    white-space: nowrap;
+}
